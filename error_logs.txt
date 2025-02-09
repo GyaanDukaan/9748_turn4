@@ -1,0 +1,165 @@
+main.cpp: In function ‘int main()’:
+main.cpp:181:24: error: no matching function for call to ‘measure_performance(ConcurrentHashMap, Order>&, const char [8], Order)’
+  181 |     measure_performance(concurrentMap, "TESTKEY", Order(10, 100));
+      |     ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:151:6: note: candidate: ‘template void measure_performance(ConcurrentHashMap&, const K&, const V&)’
+  151 | void measure_performance(ConcurrentHashMap<K, V>& map, const K& key, const V& value) {
+      |      ^~~~~~~~~~~~~~~~~~~
+main.cpp:151:6: note:   template argument deduction/substitution failed:
+main.cpp:181:24: note:   deduced conflicting types for parameter ‘const K’ (‘std::__cxx11::basic_string’ and ‘char [8]’)
+  181 |     measure_performance(concurrentMap, "TESTKEY", Order(10, 100));
+      |     ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp: In instantiation of ‘void ConcurrentHashMap<K, V>::display() const [with K = std::__cxx11::basic_string<char>; V = Order]’:
+main.cpp:178:26:   required from here
+main.cpp:63:38: error: no matching function for call to ‘std::shared_lock::shared_lock(std::shared_mutex&)’
+   63 |         std::shared_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+In file included from main.cpp:6:
+/usr/include/c++/13/shared_mutex:739:7: note: candidate: ‘std::shared_lock<_Mutex>::shared_lock(mutex_type&) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+  739 |       shared_lock(mutex_type& __m)
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:739:31: note:   no known conversion for argument 1 from ‘std::shared_mutex’ to ‘std::shared_lock::mutex_type&’ {aka ‘std::mutex&’}
+  739 |       shared_lock(mutex_type& __m)
+      |                   ~~~~~~~~~~~~^~~
+/usr/include/c++/13/shared_mutex:759:9: note: candidate: ‘template std::shared_lock<_Mutex>::shared_lock(mutex_type&, const std::chrono::duration<_Rep, _Period>&) [with _Period = _Rep; _Mutex = std::mutex]’
+  759 |         shared_lock(mutex_type& __m,
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:759:9: note:   template argument deduction/substitution failed:
+main.cpp:63:38: note:   candidate expects 2 arguments, 1 provided
+   63 |         std::shared_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/shared_mutex:753:9: note: candidate: ‘template std::shared_lock<_Mutex>::shared_lock(mutex_type&, const std::chrono::time_point<_Clock, _Duration>&) [with _Duration = _Clock; _Mutex = std::mutex]’
+  753 |         shared_lock(mutex_type& __m,
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:753:9: note:   template argument deduction/substitution failed:
+main.cpp:63:38: note:   candidate expects 2 arguments, 1 provided
+   63 |         std::shared_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/shared_mutex:773:7: note: candidate: ‘std::shared_lock<_Mutex>::shared_lock(std::shared_lock<_Mutex>&&) [with _Mutex = std::mutex]’
+  773 |       shared_lock(shared_lock&& __sl) noexcept : shared_lock()
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:773:33: note:   no known conversion for argument 1 from ‘std::shared_mutex’ to ‘std::shared_lock&&’
+  773 |       shared_lock(shared_lock&& __sl) noexcept : shared_lock()
+      |                   ~~~~~~~~~~~~~~^~~~
+/usr/include/c++/13/shared_mutex:749:7: note: candidate: ‘std::shared_lock<_Mutex>::shared_lock(mutex_type&, std::adopt_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+  749 |       shared_lock(mutex_type& __m, adopt_lock_t)
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:749:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/shared_mutex:746:7: note: candidate: ‘std::shared_lock<_Mutex>::shared_lock(mutex_type&, std::try_to_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+  746 |       shared_lock(mutex_type& __m, try_to_lock_t)
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:746:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/shared_mutex:743:7: note: candidate: ‘std::shared_lock<_Mutex>::shared_lock(mutex_type&, std::defer_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+  743 |       shared_lock(mutex_type& __m, defer_lock_t) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:743:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/shared_mutex:736:7: note: candidate: ‘std::shared_lock<_Mutex>::shared_lock() [with _Mutex = std::mutex]’
+  736 |       shared_lock() noexcept : _M_pm(nullptr), _M_owns(false) { }
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/shared_mutex:736:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp: In instantiation of ‘void ConcurrentHashMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Order]’:
+main.cpp:110:9:   required from ‘void ConcurrentHashMap::test() [with K = std::__cxx11::basic_string; V = Order]’
+main.cpp:175:23:   required from here
+main.cpp:54:38: error: no matching function for call to ‘std::unique_lock::unique_lock(std::shared_mutex&)’
+   54 |         std::unique_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+In file included from /usr/include/c++/13/mutex:46,
+                 from main.cpp:5:
+/usr/include/c++/13/bits/unique_lock.h:68:16: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   68 |       explicit unique_lock(mutex_type& __m)
+      |                ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:68:40: note:   no known conversion for argument 1 from ‘std::shared_mutex’ to ‘std::unique_lock::mutex_type&’ {aka ‘std::mutex&’}
+   68 |       explicit unique_lock(mutex_type& __m)
+      |                            ~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/unique_lock.h:97:9: note: candidate: ‘template std::unique_lock<_Mutex>::unique_lock(mutex_type&, const std::chrono::duration<_Rep, _Period>&) [with _Period = _Rep; _Mutex = std::mutex]’
+   97 |         unique_lock(mutex_type& __m,
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:97:9: note:   template argument deduction/substitution failed:
+main.cpp:54:38: note:   candidate expects 2 arguments, 1 provided
+   54 |         std::unique_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/bits/unique_lock.h:90:9: note: candidate: ‘template std::unique_lock<_Mutex>::unique_lock(mutex_type&, const std::chrono::time_point<_Clock, _Duration>&) [with _Duration = _Clock; _Mutex = std::mutex]’
+   90 |         unique_lock(mutex_type& __m,
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:90:9: note:   template argument deduction/substitution failed:
+main.cpp:54:38: note:   candidate expects 2 arguments, 1 provided
+   54 |         std::unique_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/bits/unique_lock.h:112:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>&&) [with _Mutex = std::mutex]’
+  112 |       unique_lock(unique_lock&& __u) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:112:33: note:   no known conversion for argument 1 from ‘std::shared_mutex’ to ‘std::unique_lock&&’
+  112 |       unique_lock(unique_lock&& __u) noexcept
+      |                   ~~~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/unique_lock.h:83:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&, std::adopt_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   83 |       unique_lock(mutex_type& __m, adopt_lock_t) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:83:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/bits/unique_lock.h:79:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&, std::try_to_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   79 |       unique_lock(mutex_type& __m, try_to_lock_t)
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:79:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/bits/unique_lock.h:75:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&, std::defer_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   75 |       unique_lock(mutex_type& __m, defer_lock_t) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:75:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/bits/unique_lock.h:64:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock() [with _Mutex = std::mutex]’
+   64 |       unique_lock() noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:64:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp: In instantiation of ‘std::mutex& ConcurrentHashMap<K, V>::get_mutex(const K&) [with K = std::__cxx11::basic_string<char>; V = Order]’:
+main.cpp:18:43:   required from ‘void ConcurrentHashMap::insert(const K&, const V&) [with K = std::__cxx11::basic_string; V = Order]’
+main.cpp:102:9:   required from ‘void ConcurrentHashMap::test() [with K = std::__cxx11::basic_string; V = Order]’
+main.cpp:175:23:   required from here
+main.cpp:129:38: error: no matching function for call to ‘std::unique_lock::unique_lock(std::shared_mutex&)’
+  129 |         std::unique_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/bits/unique_lock.h:68:16: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   68 |       explicit unique_lock(mutex_type& __m)
+      |                ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:68:40: note:   no known conversion for argument 1 from ‘std::shared_mutex’ to ‘std::unique_lock::mutex_type&’ {aka ‘std::mutex&’}
+   68 |       explicit unique_lock(mutex_type& __m)
+      |                            ~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/unique_lock.h:97:9: note: candidate: ‘template std::unique_lock<_Mutex>::unique_lock(mutex_type&, const std::chrono::duration<_Rep, _Period>&) [with _Period = _Rep; _Mutex = std::mutex]’
+   97 |         unique_lock(mutex_type& __m,
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:97:9: note:   template argument deduction/substitution failed:
+main.cpp:129:38: note:   candidate expects 2 arguments, 1 provided
+  129 |         std::unique_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/bits/unique_lock.h:90:9: note: candidate: ‘template std::unique_lock<_Mutex>::unique_lock(mutex_type&, const std::chrono::time_point<_Clock, _Duration>&) [with _Duration = _Clock; _Mutex = std::mutex]’
+   90 |         unique_lock(mutex_type& __m,
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:90:9: note:   template argument deduction/substitution failed:
+main.cpp:129:38: note:   candidate expects 2 arguments, 1 provided
+  129 |         std::unique_lock<std::mutex> lock(map_mutex_);
+      |                                      ^~~~
+/usr/include/c++/13/bits/unique_lock.h:112:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>&&) [with _Mutex = std::mutex]’
+  112 |       unique_lock(unique_lock&& __u) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:112:33: note:   no known conversion for argument 1 from ‘std::shared_mutex’ to ‘std::unique_lock&&’
+  112 |       unique_lock(unique_lock&& __u) noexcept
+      |                   ~~~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/unique_lock.h:83:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&, std::adopt_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   83 |       unique_lock(mutex_type& __m, adopt_lock_t) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:83:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/bits/unique_lock.h:79:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&, std::try_to_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   79 |       unique_lock(mutex_type& __m, try_to_lock_t)
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:79:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/bits/unique_lock.h:75:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock(mutex_type&, std::defer_lock_t) [with _Mutex = std::mutex; mutex_type = std::mutex]’
+   75 |       unique_lock(mutex_type& __m, defer_lock_t) noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:75:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/13/bits/unique_lock.h:64:7: note: candidate: ‘std::unique_lock<_Mutex>::unique_lock() [with _Mutex = std::mutex]’
+   64 |       unique_lock() noexcept
+      |       ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_lock.h:64:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp:131:27: error: use of deleted function ‘std::mutex& std::mutex::operator=(const std::mutex&)’
+  131 |             mutexes_[key] = std::mutex();
+      |             ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+In file included from /usr/include/c++/13/mutex:45:
+/usr/include/c++/13/bits/std_mutex.h:108:12: note: declared here
+  108 |     mutex& operator=(const mutex&) = delete;
+      |            ^~~~~~~~
